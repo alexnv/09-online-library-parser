@@ -34,7 +34,28 @@ def download_txt(url, filename, folder='books/'):
         file.write(response.content)
     return safe_filename.relative_to(Path.cwd())
 
+def download_image(url, filename, folder='books/'):
+    """Функция для скачивания графических файлов.
+    Args:
+        url (str): Cсылка на картинку, которую хочется скачать.
+        filename (str): Имя файла, с которым сохранять.
+        folder (str): Папка, куда сохранять.
+    Returns:
+        str: Путь до файла, куда сохранён текст.
+    """
 
+    response = requests.get(url)
+    response.raise_for_status()
+    check_for_redirect(response)
+    path = Path.cwd() / folder
+    path.mkdir(parents=True, exist_ok=True)
+    if not Path(filename).suffix:
+        filename = f"{filename}.jpg"
+    safe_filename = path / sanitize_filename(filename)
+
+    with open(safe_filename, "wb") as file:
+        file.write(response.content)
+    return safe_filename.relative_to(Path.cwd())
 
 def parse_book_page(book_id):
     page_book_url = f'https://tululu.org/b{book_id}/'
@@ -60,5 +81,7 @@ if __name__ == '__main__':
             name, author, image = parse_book_page(book_id)
             url = "https://tululu.org/txt.php?" + urllib.parse.urlencode(params)
             download_txt(url, f"{book_id}. {name}.txt", base_dir)
+            url = urllib.parse.urljoin("https://tululu.org/", image)
+            download_txt(url, f"{book_id}. {name}.jpg", base_dir)
         except requests.HTTPError:
             print("Такой книги нет")
