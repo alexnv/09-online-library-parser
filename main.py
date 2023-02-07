@@ -1,6 +1,9 @@
+import argparse
 import logging
+import os
 import urllib
 from pathlib import Path
+from urllib.parse import urlparse, urlsplit, unquote, urljoin
 
 import requests
 from bs4 import BeautifulSoup
@@ -11,6 +14,14 @@ def check_for_redirect(response):
     if response.history:
         raise requests.HTTPError
 
+def get_file_extension_from_url(url):
+    url_structure = urlsplit(url)
+    path = unquote(url_structure.path)
+
+    head, tail = os.path.split(path)
+    root, ext = os.path.splitext(tail)
+
+    return ext
 
 def download_txt(url, filename, folder='books/'):
     """Функция для скачивания текстовых файлов.
@@ -25,11 +36,10 @@ def download_txt(url, filename, folder='books/'):
     response = requests.get(url)
     response.raise_for_status()
     check_for_redirect(response)
-    path = Path.cwd() / folder
-    path.mkdir(parents=True, exist_ok=True)
+    Path(folder).mkdir(parents=True, exist_ok=True)
     if not Path(filename).suffix:
         filename = f"{filename}.txt"
-    safe_filename = path / sanitize_filename(filename)
+    safe_filename = Path.cwd() / folder / sanitize_filename(filename)
     logging.info(f"Скачиваем книгу по адресу {url} в файл {safe_filename}")
 
     with open(safe_filename, "wb") as file:
@@ -49,12 +59,13 @@ def download_image(url, filename, folder='books/'):
     response = requests.get(url)
     response.raise_for_status()
     check_for_redirect(response)
-    path = Path.cwd() / folder
-    path.mkdir(parents=True, exist_ok=True)
-    if not Path(filename).suffix:
-        filename = f"{filename}.jpg"
+    Path(folder).mkdir(parents=True, exist_ok=True)
 
-    safe_filename = path / sanitize_filename(filename)
+    if not Path(filename).suffix:
+        image_extension = get_file_extension_from_url(url)
+        filename = f"{filename}{image_extension}"
+
+    safe_filename = Path.cwd() / folder / sanitize_filename(filename)
     logging.info(f"Скачиваем обложку книги по адресу {url} в файл {safe_filename}")
     with open(safe_filename, "wb") as file:
         file.write(response.content)
@@ -62,6 +73,9 @@ def download_image(url, filename, folder='books/'):
 
 
 def parse_book_page(url):
+    parsed_uri = urlparse(url)
+    base_url = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
+
     logging.info(f"Получаем данные со страницы книги {url}")
     response = requests.get(url)
     response.raise_for_status()
@@ -73,30 +87,46 @@ def parse_book_page(url):
     name_book = name.strip()
     author_book = author.strip()
     image_url = soup.find("div", class_="bookimage").find("a").find("img").attrs['src']
+    book_url_selector = soup.select_one(".d_book:nth-of-type(1) tr:nth-of-type(4) a:nth-of-type(2)")
+    book_url = book_url_selector["href"] if book_url_selector else None
+    download_url = book_url
 
     comments = set(comment_div.find("span", class_="black").text for comment_div in soup.findAll("div", class_="texts"))
     genres = set(genre_el.text for genre_el in soup.find("span", class_="d_book").findAll("a"))
+
     logging.info(f"Получены данные со страницы книги {url}")
     return {"name": name_book,
             "author": author_book,
             "comments": comments,
             "genres": genres,
-            "image": image_url,
+            "image_url": urljoin(base_url,image_url),
+            "download_url": urljoin(base_url, download_url),
             }
 
-
-if __name__ == '__main__':
+def main():
     logging.getLogger().setLevel(logging.INFO)
+    parser = argparse.ArgumentParser(
+        description="script can parse https://tululu.org/ site and download books with images."
+    )
+    parser.add_argument("-s", "--start_id", default=1, type=int, help="set up start book id")
+    parser.add_argument("-e", "--end_id", default=10, type=int, help="set up end book id")
+
+    args = parser.parse_args()
+    start = args.start_id
+    end = args.end_id
+
     base_dir = Path.cwd() / "books"
-    for book_id in range(1, 10):
+    for book_id in range(start, end):
         params = {"id": book_id}
         try:
             page_book_url = f'https://tululu.org/b{book_id}/'
             book_info = parse_book_page(page_book_url)
-            url = "https://tululu.org/txt.php?" + urllib.parse.urlencode(params)
+
             book_name = book_info['name']
-            download_txt(url, f"{book_id}. {book_name}.txt", base_dir)
-            url = urllib.parse.urljoin("https://tululu.org/", book_info['image'])
-            download_txt(url, f"{book_id}. {book_name}.jpg", base_dir)
+            download_txt(book_info['download_url'], f"{book_id} {book_name}.txt", base_dir)
+            download_image(book_info['image_url'], f"{book_id} {book_name}", base_dir)
         except requests.HTTPError:
             logging.info(f"Книга не обнаружена по адресу {page_book_url}")
+
+if __name__ == '__main__':
+    main()
