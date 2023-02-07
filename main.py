@@ -71,8 +71,9 @@ def parse_book_page(book_id):
     image_url = soup.find("div", class_="bookimage").find("a").find("img").attrs['src']
 
     comments = set(comment_div.find("span", class_="black").text for comment_div in soup.findAll("div", class_="texts"))
+    genres = set(genre_el.text for genre_el in soup.find("span", class_="d_book").findAll("a"))
 
-    return name_book, author_book, comments, image_url
+    return name_book, author_book, comments, image_url, genres
 
 
 if __name__ == '__main__':
@@ -80,7 +81,7 @@ if __name__ == '__main__':
     for book_id in range(1,10):
         params = {"id": book_id}
         try:
-            name, author, comments, image = parse_book_page(book_id)
+            name, author, comments, image, genres = parse_book_page(book_id)
             url = "https://tululu.org/txt.php?" + urllib.parse.urlencode(params)
             download_txt(url, f"{book_id}. {name}.txt", base_dir)
             url = urllib.parse.urljoin("https://tululu.org/", image)
