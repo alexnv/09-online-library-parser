@@ -1,7 +1,7 @@
 import argparse
+import json
 import logging
 import os
-import urllib
 from pathlib import Path
 from urllib.parse import urlparse, urlsplit, unquote, urljoin
 
@@ -14,6 +14,7 @@ def check_for_redirect(response):
     if response.history:
         raise requests.HTTPError
 
+
 def get_file_extension_from_url(url):
     url_structure = urlsplit(url)
     path = unquote(url_structure.path)
@@ -22,6 +23,7 @@ def get_file_extension_from_url(url):
     root, ext = os.path.splitext(tail)
 
     return ext
+
 
 def download_txt(url, filename, folder='books/'):
     """Функция для скачивания текстовых файлов.
@@ -91,17 +93,27 @@ def parse_book_page(url):
     book_url = book_url_selector["href"] if book_url_selector else None
     download_url = book_url
 
-    comments = set(comment_div.find("span", class_="black").text for comment_div in soup.findAll("div", class_="texts"))
-    genres = set(genre_el.text for genre_el in soup.find("span", class_="d_book").findAll("a"))
+    comments = list(comment_div.find("span", class_="black").text for comment_div in soup.findAll("div", class_="texts"))
+    genres = list(genre_el.text for genre_el in soup.find("span", class_="d_book").findAll("a"))
 
     logging.info(f"Получены данные со страницы книги {url}")
     return {"name": name_book,
             "author": author_book,
             "comments": comments,
             "genres": genres,
-            "image_url": urljoin(base_url,image_url),
+            "image_url": urljoin(base_url, image_url),
             "download_url": urljoin(base_url, download_url),
             }
+
+
+def save_book_info_in_json(books_info, filename="books.json", folder="books/"):
+    Path(folder).mkdir(parents=True, exist_ok=True)
+    if not Path(filename).suffix:
+        filename = f"{filename}.json"
+    safe_filename = Path.cwd() / folder / sanitize_filename(filename)
+    with open(safe_filename, "w", encoding='utf8') as file:
+        json.dump(books_info, file, ensure_ascii=False, indent=2)
+
 
 def main():
     logging.getLogger().setLevel(logging.INFO)
@@ -116,8 +128,8 @@ def main():
     end = args.end_id
 
     base_dir = Path.cwd() / "books"
+    books_info = []
     for book_id in range(start, end):
-        params = {"id": book_id}
         try:
             page_book_url = f'https://tululu.org/b{book_id}/'
             book_info = parse_book_page(page_book_url)
@@ -125,8 +137,11 @@ def main():
             book_name = book_info['name']
             download_txt(book_info['download_url'], f"{book_id} {book_name}.txt", base_dir)
             download_image(book_info['image_url'], f"{book_id} {book_name}", base_dir)
+            books_info.append(book_info)
         except requests.HTTPError:
             logging.info(f"Книга не обнаружена по адресу {page_book_url}")
+    save_book_info_in_json(books_info)
+
 
 if __name__ == '__main__':
     main()
