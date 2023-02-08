@@ -106,13 +106,15 @@ def parse_book_page(url):
     genres = list(genre_el.text for genre_el in soup.find("span", class_="d_book").findAll("a"))
 
     logging.info(f"Получены данные со страницы книги {url}")
-    return {"name": name_book,
-            "author": author_book,
-            "comments": comments,
-            "genres": genres,
-            "image_url": urljoin(base_url, image_url),
-            "download_url": urljoin(base_url, download_url),
-            }
+    book = {
+        "name": name_book,
+        "author": author_book,
+        "comments": comments,
+        "genres": genres,
+        "image_url": urljoin(base_url, image_url),
+        "download_url": urljoin(base_url, download_url),
+    }
+    return book
 
 
 def save_book_info_in_json(books_info, filename="books.json", folder="books/"):
@@ -154,7 +156,9 @@ def main():
                 break
             except requests.ConnectionError:
                 logging.warn(
-                    f"Не удалось установить соединение с сервером по адресу {page_book_url}. Повторная попытка через 10 сек")
+                    f"Не удалось установить соединение с сервером по адресу {page_book_url}. "+
+                    f"Повторная попытка через 10 сек")
+
                 time.sleep(10)
 
     save_book_info_in_json(books)
