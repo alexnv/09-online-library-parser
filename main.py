@@ -128,19 +128,19 @@ def main():
     end = args.end_id
 
     base_dir = Path.cwd() / "books"
-    books_info = []
+    books = []
     for book_id in range(start, end):
         try:
             page_book_url = f'https://tululu.org/b{book_id}/'
-            book_info = parse_book_page(page_book_url)
+            book = parse_book_page(page_book_url)
 
-            book_name = book_info['name']
-            download_txt(book_info['download_url'], f"{book_id} {book_name}.txt", base_dir)
-            download_image(book_info['image_url'], f"{book_id} {book_name}", base_dir)
-            books_info.append(book_info)
+            book_name = book['name']
+            download_txt(book['download_url'], f"{book_id} {book_name}.txt", base_dir)
+            download_image(book['image_url'], f"{book_id} {book_name}", base_dir)
+            books.append(book)
         except requests.HTTPError:
             logging.info(f"Книга не обнаружена по адресу {page_book_url}")
-    save_book_info_in_json(books_info)
+    save_book_info_in_json(books)
 
 
 if __name__ == '__main__':
