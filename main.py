@@ -43,7 +43,7 @@ def save_to_file(content, filename, folder):
     filepath = Path.cwd() / folder / sanitize_filename(filename)
     with open(filepath, "wb") as file:
         file.write(content)
-    return filepath.relative_to(Path.cwd())
+    return filepath
 
 
 def download_txt(url, filename, folder='books/'):
