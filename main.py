@@ -38,6 +38,11 @@ def request_from_url(url):
     check_for_redirect(response)
     return response
 
+def save_to_file(content, filename, folder):
+    filepath = Path.cwd() / folder / sanitize_filename(filename)
+    with open(filepath, "wb") as file:
+        file.write(content)
+    return filepath.relative_to(Path.cwd())
 
 def download_txt(url, filename, folder='books/'):
     """Функция для скачивания текстовых файлов.
@@ -53,12 +58,8 @@ def download_txt(url, filename, folder='books/'):
     Path(folder).mkdir(parents=True, exist_ok=True)
     if not Path(filename).suffix:
         filename = f"{filename}.txt"
-    safe_filename = Path.cwd() / folder / sanitize_filename(filename)
-    logging.info(f"Скачиваем книгу по адресу {url} в файл {safe_filename}")
-
-    with open(safe_filename, "wb") as file:
-        file.write(response.content)
-    return safe_filename.relative_to(Path.cwd())
+    logging.info(f"Скачиваем книгу по адресу {url} в файл {sanitize_filename(filename)}")
+    return save_to_file(response.content, filename, folder)
 
 
 def download_image(url, filename, folder='books/'):
@@ -77,11 +78,8 @@ def download_image(url, filename, folder='books/'):
         image_extension = get_file_extension_from_url(url)
         filename = f"{filename}{image_extension}"
 
-    safe_filename = Path.cwd() / folder / sanitize_filename(filename)
-    logging.info(f"Скачиваем обложку книги по адресу {url} в файл {safe_filename}")
-    with open(safe_filename, "wb") as file:
-        file.write(response.content)
-    return safe_filename.relative_to(Path.cwd())
+    logging.info(f"Скачиваем обложку книги по адресу {url} в файл {sanitize_filename(filename)}")
+    return save_to_file(response.content, filename, folder)
 
 
 def parse_book_page(url):
