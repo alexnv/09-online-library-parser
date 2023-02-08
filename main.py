@@ -2,6 +2,7 @@ import argparse
 import json
 import logging
 import os
+import time
 from pathlib import Path
 from urllib.parse import urlparse, urlsplit, unquote, urljoin
 
@@ -130,16 +131,23 @@ def main():
     base_dir = Path.cwd() / "books"
     books = []
     for book_id in range(start, end):
-        try:
-            page_book_url = f'https://tululu.org/b{book_id}/'
-            book = parse_book_page(page_book_url)
+        while True:
+            try:
+                page_book_url = f'https://tululu.org/b{book_id}/'
+                book = parse_book_page(page_book_url)
 
-            book_name = book['name']
-            download_txt(book['download_url'], f"{book_id} {book_name}.txt", base_dir)
-            download_image(book['image_url'], f"{book_id} {book_name}", base_dir)
-            books.append(book)
-        except requests.HTTPError:
-            logging.info(f"Книга не обнаружена по адресу {page_book_url}")
+                book_name = book['name']
+                download_txt(book['download_url'], f"{book_id} {book_name}.txt", base_dir)
+                download_image(book['image_url'], f"{book_id} {book_name}", base_dir)
+                books.append(book)
+                break
+            except requests.HTTPError:
+                logging.info(f"Книга не обнаружена по адресу {page_book_url}")
+                break
+            except requests.ConnectionError:
+                logging.warn(f"Не удалось установить соединение с сервером по адресу {page_book_url}. Повторная попытка через 10 сек")
+                time.sleep(10)
+
     save_book_info_in_json(books)
 
 
