@@ -38,11 +38,13 @@ def request_from_url(url):
     check_for_redirect(response)
     return response
 
+
 def save_to_file(content, filename, folder):
     filepath = Path.cwd() / folder / sanitize_filename(filename)
     with open(filepath, "wb") as file:
         file.write(content)
     return filepath.relative_to(Path.cwd())
+
 
 def download_txt(url, filename, folder='books/'):
     """Функция для скачивания текстовых файлов.
@@ -115,7 +117,7 @@ def parse_book_page(url):
     return book
 
 
-def save_book_info_in_json(books_info, filename="books.json", folder="books/"):
+def save_books(books_info, filename="books.json", folder="books/"):
     Path(folder).mkdir(parents=True, exist_ok=True)
     if not Path(filename).suffix:
         filename = f"{filename}.json"
@@ -154,12 +156,12 @@ def main():
                 break
             except requests.ConnectionError:
                 logging.warn(
-                    f"Не удалось установить соединение с сервером по адресу {page_book_url}. "+
+                    f"Не удалось установить соединение с сервером по адресу {page_book_url}. " +
                     f"Повторная попытка через 10 сек")
 
                 time.sleep(10)
 
-    save_book_info_in_json(books)
+    save_books(books)
 
 
 if __name__ == '__main__':
