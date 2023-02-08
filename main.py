@@ -84,13 +84,14 @@ def download_image(url, filename, folder='books/'):
     return save_to_file(response.content, filename, folder)
 
 
-def parse_book_page(url):
-    base_url = get_base_url(url)
-
+def get_book_html(url):
     logging.info(f"Получаем данные со страницы книги {url}")
     response = request_from_url(url)
+    return response.text
 
-    soup = BeautifulSoup(response.text, 'lxml')
+
+def parse_book_page(html):
+    soup = BeautifulSoup(html, 'lxml')
     title_tag = soup.find(id='content').find('h1')
     title_text = title_tag.text
     name, author = title_text.split(" :: ")
@@ -105,14 +106,13 @@ def parse_book_page(url):
         comment_div.find("span", class_="black").text for comment_div in soup.findAll("div", class_="texts"))
     genres = list(genre_el.text for genre_el in soup.find("span", class_="d_book").findAll("a"))
 
-    logging.info(f"Получены данные со страницы книги {url}")
     book = {
         "name": name_book,
         "author": author_book,
         "comments": comments,
         "genres": genres,
-        "image_url": urljoin(base_url, image_url),
-        "download_url": urljoin(base_url, download_url),
+        "image_url": image_url,
+        "download_url": download_url,
     }
     return book
 
@@ -142,20 +142,22 @@ def main():
     books = []
     for book_id in range(start, end):
         while True:
+            page_book_url = f'https://tululu.org/b{book_id}/'
             try:
-                page_book_url = f'https://tululu.org/b{book_id}/'
-                book = parse_book_page(page_book_url)
+                base_url = get_base_url(page_book_url)
+                book = parse_book_page(get_book_html(page_book_url))
+                logging.info(f"Получены данные со страницы книги {page_book_url}")
 
                 book_name = book['name']
-                download_txt(book['download_url'], f"{book_id} {book_name}.txt", base_dir)
-                download_image(book['image_url'], f"{book_id} {book_name}", base_dir)
+                download_txt(urljoin(base_url, book['download_url']), f"{book_id} {book_name}.txt", base_dir)
+                download_image(urljoin(base_url, book['image_url']), f"{book_id} {book_name}", base_dir)
                 books.append(book)
                 break
             except requests.HTTPError:
                 logging.info(f"Книга не обнаружена по адресу {page_book_url}")
                 break
             except requests.ConnectionError:
-                logging.warn(
+                logging.warning(
                     f"Не удалось установить соединение с сервером по адресу {page_book_url}. " +
                     f"Повторная попытка через 10 сек")
 
