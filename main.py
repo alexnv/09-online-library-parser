@@ -16,6 +16,12 @@ def check_for_redirect(response):
         raise requests.HTTPError
 
 
+def get_base_url(url):
+    parsed_uri = urlparse(url)
+    base_url = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
+    return base_url
+
+
 def get_file_extension_from_url(url):
     url_structure = urlsplit(url)
     path = unquote(url_structure.path)
@@ -24,6 +30,13 @@ def get_file_extension_from_url(url):
     root, ext = os.path.splitext(tail)
 
     return ext
+
+
+def request_from_url(url):
+    response = requests.get(url)
+    response.raise_for_status()
+    check_for_redirect(response)
+    return response
 
 
 def download_txt(url, filename, folder='books/'):
@@ -36,9 +49,7 @@ def download_txt(url, filename, folder='books/'):
         str: Путь до файла, куда сохранён текст.
     """
 
-    response = requests.get(url)
-    response.raise_for_status()
-    check_for_redirect(response)
+    response = request_from_url(url)
     Path(folder).mkdir(parents=True, exist_ok=True)
     if not Path(filename).suffix:
         filename = f"{filename}.txt"
@@ -59,9 +70,7 @@ def download_image(url, filename, folder='books/'):
     Returns:
         str: Путь до файла, куда сохранён текст.
     """
-    response = requests.get(url)
-    response.raise_for_status()
-    check_for_redirect(response)
+    response = request_from_url(url)
     Path(folder).mkdir(parents=True, exist_ok=True)
 
     if not Path(filename).suffix:
@@ -76,13 +85,11 @@ def download_image(url, filename, folder='books/'):
 
 
 def parse_book_page(url):
-    parsed_uri = urlparse(url)
-    base_url = '{uri.scheme}://{uri.netloc}/'.format(uri=parsed_uri)
+    base_url = get_base_url(url)
 
     logging.info(f"Получаем данные со страницы книги {url}")
-    response = requests.get(url)
-    response.raise_for_status()
-    check_for_redirect(response)
+    response = request_from_url(url)
+
     soup = BeautifulSoup(response.text, 'lxml')
     title_tag = soup.find(id='content').find('h1')
     title_text = title_tag.text
@@ -94,7 +101,8 @@ def parse_book_page(url):
     book_url = book_url_selector["href"] if book_url_selector else None
     download_url = book_url
 
-    comments = list(comment_div.find("span", class_="black").text for comment_div in soup.findAll("div", class_="texts"))
+    comments = list(
+        comment_div.find("span", class_="black").text for comment_div in soup.findAll("div", class_="texts"))
     genres = list(genre_el.text for genre_el in soup.find("span", class_="d_book").findAll("a"))
 
     logging.info(f"Получены данные со страницы книги {url}")
@@ -145,7 +153,8 @@ def main():
                 logging.info(f"Книга не обнаружена по адресу {page_book_url}")
                 break
             except requests.ConnectionError:
-                logging.warn(f"Не удалось установить соединение с сервером по адресу {page_book_url}. Повторная попытка через 10 сек")
+                logging.warn(
+                    f"Не удалось установить соединение с сервером по адресу {page_book_url}. Повторная попытка через 10 сек")
                 time.sleep(10)
 
     save_book_info_in_json(books)
