@@ -121,8 +121,8 @@ def save_books(books_info, filename="books.json", folder="books/"):
     Path(folder).mkdir(parents=True, exist_ok=True)
     if not Path(filename).suffix:
         filename = f"{filename}.json"
-    safe_filename = Path.cwd() / folder / sanitize_filename(filename)
-    with open(safe_filename, "w", encoding='utf8') as file:
+    filepath = Path.cwd() / folder / sanitize_filename(filename)
+    with open(filepath, "w", encoding='utf8') as file:
         json.dump(books_info, file, ensure_ascii=False, indent=2)
 
 
