@@ -84,12 +84,6 @@ def download_image(url, filename, folder='books/'):
     return save_to_file(response.content, filename, folder)
 
 
-def get_book_html(url):
-    logging.info(f"Получаем данные со страницы книги {url}")
-    response = request_from_url(url)
-    return response.text
-
-
 def parse_book_page(html):
     soup = BeautifulSoup(html, 'lxml')
     title_tag = soup.find(id='content').find('h1')
@@ -145,7 +139,10 @@ def main():
             page_book_url = f'https://tululu.org/b{book_id}/'
             try:
                 base_url = get_base_url(page_book_url)
-                book = parse_book_page(get_book_html(page_book_url))
+
+                logging.info(f"Получаем данные со страницы книги {page_book_url}")
+                response = request_from_url(page_book_url)
+                book = parse_book_page(response.text)
                 logging.info(f"Получены данные со страницы книги {page_book_url}")
 
                 book_name = book['name']
