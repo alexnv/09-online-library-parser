@@ -1,11 +1,12 @@
-import os
+import argparse
 import json
+import os
 import time
-import requests
-
 from pathlib import Path
-from bs4 import BeautifulSoup
 from urllib.parse import urljoin
+
+import requests
+from bs4 import BeautifulSoup
 from pathvalidate import sanitize_filename
 
 
@@ -52,11 +53,14 @@ def parse_book_page(soup):
     return parsed_page
 
 
-def get_books_rel_paths(url, genre, total_pages):
+def get_books_rel_paths(url, genre, start_page, end_page):
     paths = []
-    for page in range(1, total_pages + 1):
+    for page in range(start_page, end_page):
         genre_url = f"{url}l{genre}/{page}/"
-        soup = get_soup(genre_url)
+        try:
+            soup = get_soup(genre_url)
+        except requests.exceptions.HTTPError:
+            break
         tables = soup.select("table.d_book")
         paths.extend([table.select_one("a")["href"] for table in tables])
     return paths
@@ -92,13 +96,18 @@ def save_as_json(books_info):
 
 
 def main():
+    arguments = create_parser().parse_args()
+    start_page = arguments.start_page
+    end_page = arguments.end_page
+
     url = "https://tululu.org/"
     genre = 55
     total_pages = 4
     books_rel_paths = get_books_rel_paths(
         url,
         genre,
-        total_pages,
+        start_page,
+        end_page
     )
     books_info = []
     for path in books_rel_paths:
@@ -106,7 +115,7 @@ def main():
         txt_url = f"{url}txt.php"
         book_id = path.strip("/b")
         params = {
-        "id": book_id
+            "id": book_id
         }
         try:
             soup = get_soup(book_url)
@@ -131,6 +140,17 @@ def main():
             print(error)
             continue
     save_as_json(books_info)
+
+
+def create_parser():
+    parser = argparse.ArgumentParser(description="""
+        Опциональные аргументы.
+        Введите номер первой и номер последней страницы (последняя не будет скачана).
+        По умолчанию будут скачаны книги со всех доступных страниц.
+    """)
+    parser.add_argument("-s", "--start_page", default=1, type=int)
+    parser.add_argument("-e", "--end_page", default=1000000, type=int)
+    return parser
 
 
 if __name__ == "__main__":
