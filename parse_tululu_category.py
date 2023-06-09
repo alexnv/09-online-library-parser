@@ -144,9 +144,6 @@ def main():
         except requests.exceptions.ConnectionError:
             time.sleep(1)
             continue
-        except Exception as error:
-            print(error)
-            continue
     save_as_json(books_info, dest_folder, json_path)
 
 
