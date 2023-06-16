@@ -32,8 +32,8 @@ def get_file_extension_from_url(url):
     return ext
 
 
-def request_from_url(url):
-    response = requests.get(url)
+def request_from_url(url, params=[]):
+    response = requests.get(url, params)
     response.raise_for_status()
     check_for_redirect(response)
     return response
@@ -43,10 +43,10 @@ def save_to_file(content, filename, folder):
     filepath = Path.cwd() / folder / sanitize_filename(filename)
     with open(filepath, "wb") as file:
         file.write(content)
-    return filepath
+    return filepath.as_posix()
 
 
-def download_txt(url, filename, folder='books/'):
+def download_txt(url, filename, folder='books/', params=[]):
     """Функция для скачивания текстовых файлов.
     Args:
         url (str): Cсылка на текст, который хочется скачать.
@@ -56,7 +56,7 @@ def download_txt(url, filename, folder='books/'):
         str: Путь до файла, куда сохранён текст.
     """
 
-    response = request_from_url(url)
+    response = request_from_url(url, params)
     Path(folder).mkdir(parents=True, exist_ok=True)
     if not Path(filename).suffix:
         filename = f"{filename}.txt"
@@ -64,7 +64,7 @@ def download_txt(url, filename, folder='books/'):
     return save_to_file(response.content, filename, folder)
 
 
-def download_image(url, filename, folder='books/'):
+def download_image(url, filename, folder='books/', params=[]):
     """Функция для скачивания графических файлов.
     Args:
         url (str): Cсылка на картинку, которую хочется скачать.
@@ -73,7 +73,7 @@ def download_image(url, filename, folder='books/'):
     Returns:
         str: Путь до файла, куда сохранён текст.
     """
-    response = request_from_url(url)
+    response = request_from_url(url, params=[])
     Path(folder).mkdir(parents=True, exist_ok=True)
 
     if not Path(filename).suffix:
@@ -84,6 +84,18 @@ def download_image(url, filename, folder='books/'):
     return save_to_file(response.content, filename, folder)
 
 
+def get_genres(soup):
+    genres_tags = soup.select("span.d_book a")
+    genres = [tag.text for tag in genres_tags]
+    return genres
+
+
+def get_comments_texts(soup):
+    comments = soup.select("div.texts span.black")
+    texts = [comment.text for comment in comments]
+    return texts
+
+
 def parse_book_page(html):
     soup = BeautifulSoup(html, 'lxml')
     title_tag = soup.find(id='content').find('h1')
@@ -91,21 +103,19 @@ def parse_book_page(html):
     name, author = title_text.split(" :: ")
     name_book = name.strip()
     author_book = author.strip()
-    image_url = soup.find("div", class_="bookimage").find("a").find("img").attrs['src']
+    image_url = soup.select_one("body div.bookimage img")["src"]
+    image_name = os.path.split(image_url)[-1]
     book_url_selector = soup.select_one(".d_book:nth-of-type(1) tr:nth-of-type(4) a:nth-of-type(2)")
     book_url = book_url_selector["href"] if book_url_selector else None
     download_url = book_url
 
-    comments = list(
-        comment_div.find("span", class_="black").text for comment_div in soup.findAll("div", class_="texts"))
-    genres = list(genre_el.text for genre_el in soup.find("span", class_="d_book").findAll("a"))
-
     book = {
         "name": name_book,
         "author": author_book,
-        "comments": comments,
-        "genres": genres,
+        "comments": get_comments_texts(soup),
+        "genres":  get_genres(soup),
         "image_url": image_url,
+        "image_name": image_name,
         "download_url": download_url,
     }
     return book
