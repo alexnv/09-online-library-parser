@@ -8,22 +8,12 @@ import requests
 from bs4 import BeautifulSoup
 from pathvalidate import sanitize_filename
 
-from library_parser import check_for_redirect, parse_book_page, request_from_url, download_txt, download_image
+from library_parser import parse_book_page, request_from_url, download_txt, download_image
 
 
 def get_soup(url):
-    response = requests.get(url)
-    response.raise_for_status()
-    check_for_redirect(response)
+    response = request_from_url(url)
     return BeautifulSoup(response.text, "lxml")
-
-
-def split_title_tag(soup):
-    title_tag = soup.select_one("table.tabs h1")
-    raw_title, raw_author = title_tag.text.split("::")
-    title = raw_title.strip()
-    author = raw_author.strip()
-    return title, author
 
 
 def get_relative_adresses_of_books(url, genre, start_page, end_page):
@@ -62,14 +52,14 @@ def main():
     json_path = arguments.json_path
 
     url = "https://tululu.org/"
-    relative_adresses_of_books = get_relative_adresses_of_books(
+    books_relative_adresses = get_relative_adresses_of_books(
         url,
         genre,
         start_page,
         end_page
     )
     books = []
-    for book_adress in relative_adresses_of_books:
+    for book_adress in books_relative_adresses:
         book_url = urljoin(url, book_adress)
         txt_url = f"{url}txt.php"
         book_id = book_adress.strip("/b")
