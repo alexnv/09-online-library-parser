@@ -1,6 +1,5 @@
 import argparse
 import json
-import os
 import time
 from pathlib import Path
 from urllib.parse import urljoin
@@ -27,19 +26,6 @@ def split_title_tag(soup):
     return title, author
 
 
-
-
-
-# def parse_book_page(soup):
-#     parsed_page = {}
-#     parsed_page['title'], parsed_page['author'] = split_title_tag(soup)
-#     parsed_page['genres'] = get_genres(soup)
-#     parsed_page['comments'] = get_comments_texts(soup)
-#     parsed_page['pic_rel_path'] = soup.select_one("body div.bookimage img")["src"]
-#     parsed_page['pic_name'] = os.path.split(parsed_page['pic_rel_path'])[-1]
-#     return parsed_page
-
-
 def get_books_rel_address(url, genre, start_page, end_page):
     urls = []
     for page in range(start_page, end_page):
@@ -55,30 +41,6 @@ def get_books_rel_address(url, genre, start_page, end_page):
         tables = soup.select("table.d_book")
         urls.extend([table.select_one("a")["href"] for table in tables])
     return urls
-
-
-# def download_txt(txt_url, params, txt_name, dest_folder, folder="books/"):
-#     response = requests.get(txt_url, params)
-#     response.raise_for_status()
-#     check_for_redirect(response)
-#     Path(f"{dest_folder}/{folder}").mkdir(parents=True, exist_ok=True)
-#     path = Path(f"{dest_folder}/{folder}/{txt_name}")
-#     with open(path, "w") as file:
-#         file.write(response.text)
-#
-#     return str(path.as_posix())
-
-
-# def download_image(pic_url, pic_name, dest_folder, folder="images/"):
-#     response = requests.get(pic_url)
-#     response.raise_for_status()
-#     check_for_redirect(response)
-#     Path(f"{dest_folder}/{folder}").mkdir(parents=True, exist_ok=True)
-#     path = Path(f"{dest_folder}/{folder}/{pic_name}")
-#     with open(path, "wb") as file:
-#         file.write(response.content)
-#
-#     return str(path.as_posix())
 
 
 def save_as_json(books, dest_folder, json_path, filename="books_info"):
