@@ -26,7 +26,7 @@ def split_title_tag(soup):
     return title, author
 
 
-def get_books_rel_address(url, genre, start_page, end_page):
+def get_relative_adresses_of_books(url, genre, start_page, end_page):
     urls = []
     for page in range(start_page, end_page):
         genre_url = f"{url}l{genre}/{page}/"
@@ -62,14 +62,14 @@ def main():
     json_path = arguments.json_path
 
     url = "https://tululu.org/"
-    books_rel_adress = get_books_rel_address(
+    relative_adresses_of_books = get_relative_adresses_of_books(
         url,
         genre,
         start_page,
         end_page
     )
     books = []
-    for book_adress in books_rel_adress:
+    for book_adress in relative_adresses_of_books:
         book_url = urljoin(url, book_adress)
         txt_url = f"{url}txt.php"
         book_id = book_adress.strip("/b")
