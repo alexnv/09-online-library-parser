@@ -11,17 +11,12 @@ from pathvalidate import sanitize_filename
 from library_parser import parse_book_page, request_from_url, download_txt, download_image
 
 
-def get_soup(url):
-    response = request_from_url(url)
-    return BeautifulSoup(response.text, "lxml")
-
-
 def get_relative_adresses_of_books(url, genre, start_page, end_page):
     urls = []
     for page in range(start_page, end_page):
         genre_url = f"{url}l{genre}/{page}/"
         try:
-            soup = get_soup(genre_url)
+            soup = BeautifulSoup(request_from_url(genre_url).text, "lxml")
         except requests.exceptions.HTTPError as error:
             print(error)
             continue
@@ -67,7 +62,6 @@ def main():
             "id": book_id
         }
         try:
-            soup = get_soup(book_url)
             parsed_page = parse_book_page(request_from_url(book_url).text)
             if not skip_txt:
                 txt_name = sanitize_filename(f"{parsed_page['author']}.txt")
