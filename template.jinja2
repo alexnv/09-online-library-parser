@@ -13,7 +13,7 @@
 </head>
 <body>
 <div class="container">
-  <nav aria-label="Page navigation example">
+  <nav  class="mt-3" aria-label="Page navigation example">
     <ul class="pagination">
 
         {% if current_page == 1 %}
@@ -49,6 +49,11 @@
                 <div class="card-body">
                   <h5 class="card-title">{{ book.name }}</h5>
                   <p class="card-text">{{ book.author }}</p>
+                  <p class="card-text">
+                    {% for genre in book.genres %}
+                      <span class="badge badge-secondary">{{ genre }}</span>
+                    {% endfor %}
+                  </p>
                   <p class="card-text"><a href="../{{ book['book_path']|urlencode }}" target="_blank">Читать</a></p>
                 </div>
               </div>
