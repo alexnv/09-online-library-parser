@@ -9,10 +9,10 @@ from pathvalidate import sanitize_filename
 
 
 def render_page(id, totalpages, books, template, dir):
-    pages_nums = range(1, totalpages+1)
+    pages_nums = range(1, totalpages + 1)
     rendered_page = template.render(
         books=books,
-        current_page=id+1,
+        current_page=id + 1,
         total_pages=totalpages,
         pages_nums=pages_nums
     )
@@ -20,12 +20,11 @@ def render_page(id, totalpages, books, template, dir):
     with open(filepath, "w", encoding="utf8") as file:
         file.write(rendered_page)
 
-    #write index.html page
+    # write index.html page
     if not id:
         filepath = Path.cwd() / dir / sanitize_filename(f"index.html")
         with open(filepath, "w", encoding="utf8") as file:
             file.write(rendered_page)
-
 
 
 def on_reload():
