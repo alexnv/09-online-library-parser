@@ -70,7 +70,13 @@ def create_parser():
         По умолчанию будут скачаны все книги и картинки со всех доступных страниц
         в заранее определённые папки в корневом каталоге проекта."""
     )
-
+    parser.add_argument(
+        "-f",
+        "--book_folder",
+        default="./books",
+        help="""Введите путь к каталогу с результатами парсинга:
+                картинкам, книгам, JSON."""
+    )
     parser.add_argument(
         "-j",
         "--json_path",
@@ -84,7 +90,6 @@ def create_parser():
         default="./pages",
         help="Введите путь к каталогу со сгенерированными страницами сайта"
     )
-
     parser.add_argument(
         "-p",
         "--books_per_page",
