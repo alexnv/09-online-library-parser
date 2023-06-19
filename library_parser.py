@@ -43,7 +43,7 @@ def save_to_file(content, filename, folder):
     filepath = Path.cwd() / folder / sanitize_filename(filename)
     with open(filepath, "wb") as file:
         file.write(content)
-    return filepath.as_posix()
+    return filepath.relative_to(Path.cwd()).as_posix()
 
 
 def download_txt(url, filename, folder='books/', params=[]):
@@ -52,6 +52,7 @@ def download_txt(url, filename, folder='books/', params=[]):
         url (str): Cсылка на текст, который хочется скачать.
         filename (str): Имя файла, с которым сохранять.
         folder (str): Папка, куда сохранять.
+        params (): Дополнительные параметры запроса
     Returns:
         str: Путь до файла, куда сохранён текст.
     """
@@ -113,7 +114,7 @@ def parse_book_page(html):
         "name": name_book,
         "author": author_book,
         "comments": get_comments_texts(soup),
-        "genres":  get_genres(soup),
+        "genres": get_genres(soup),
         "image_url": image_url,
         "image_name": image_name,
         "download_url": download_url,
