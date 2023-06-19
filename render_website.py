@@ -20,6 +20,13 @@ def render_page(id, totalpages, books, template, dir):
     with open(filepath, "w", encoding="utf8") as file:
         file.write(rendered_page)
 
+    #write index.html page
+    if not id:
+        filepath = Path.cwd() / dir / sanitize_filename(f"index.html")
+        with open(filepath, "w", encoding="utf8") as file:
+            file.write(rendered_page)
+
+
 
 def on_reload():
     arguments = create_parser().parse_args()
