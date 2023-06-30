@@ -13,8 +13,8 @@
       "Прочие Детективы"
     ],
     "download_url": "/txt.php?id=239",
-    "book_path": "books/ИВАНОВ Сергей.txt",
-    "img_src": "books/239.jpg"
+    "book_path": "media/books/ИВАНОВ Сергей.txt",
+    "img_src": "media/images/239.jpg"
   },
   {
     "name": "Бич небесный",
@@ -34,8 +34,8 @@
       "Триллеры"
     ],
     "download_url": "/txt.php?id=550",
-    "book_path": "books/Стерлинг Брюс.txt",
-    "img_src": "books/550.jpg"
+    "book_path": "media/books/Стерлинг Брюс.txt",
+    "img_src": "media/images/550.jpg"
   },
   {
     "name": "Цена посвящения: Серый Ангел",
@@ -49,8 +49,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=768",
-    "book_path": "books/Маркеев Олег Георгиевич.txt",
-    "img_src": "books/768.jpg"
+    "book_path": "media/books/Маркеев Олег Георгиевич.txt",
+    "img_src": "media/images/768.jpg"
   },
   {
     "name": "Цена посвящения: Время Зверя",
@@ -65,8 +65,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=769",
-    "book_path": "books/Маркеев Олег Георгиевич.txt",
-    "img_src": "books/769.jpg"
+    "book_path": "media/books/Маркеев Олег Георгиевич.txt",
+    "img_src": "media/images/769.jpg"
   },
   {
     "name": "Дело Джен, или Эйра немилосердия",
@@ -77,8 +77,8 @@
       "Прочие Детективы"
     ],
     "download_url": "/txt.php?id=1131",
-    "book_path": "books/Fforde Jasper.txt",
-    "img_src": "books/1131.jpg"
+    "book_path": "media/books/Fforde Jasper.txt",
+    "img_src": "media/images/1131.jpg"
   },
   {
     "name": "Фабрика дьявола",
@@ -95,8 +95,8 @@
       "Триллеры"
     ],
     "download_url": "/txt.php?id=1715",
-    "book_path": "books/Мар Курт.txt",
-    "img_src": "books/1715.jpg"
+    "book_path": "media/books/Мар Курт.txt",
+    "img_src": "media/images/1715.jpg"
   },
   {
     "name": "Говорящий камень",
@@ -116,8 +116,8 @@
       "Прочие Детективы"
     ],
     "download_url": "/txt.php?id=1987",
-    "book_path": "books/Азимов Айзек.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Азимов Айзек.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "И Он пришел... ИТ-роман",
@@ -149,8 +149,8 @@
       "Триллеры"
     ],
     "download_url": "/txt.php?id=2043",
-    "book_path": "books/Аджалов Владимир.txt",
-    "img_src": "books/2043.jpg"
+    "book_path": "media/books/Аджалов Владимир.txt",
+    "img_src": "media/images/2043.jpg"
   },
   {
     "name": "Казнить нельзя помиловать",
@@ -163,8 +163,8 @@
       "Триллеры"
     ],
     "download_url": "/txt.php?id=2531",
-    "book_path": "books/Чертанов Максим.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Чертанов Максим.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Ночь, которая умирает",
@@ -184,8 +184,8 @@
       "Прочие Детективы"
     ],
     "download_url": "/txt.php?id=4024",
-    "book_path": "books/Азимов Айзек.txt",
-    "img_src": "books/4024.jpg"
+    "book_path": "media/books/Азимов Айзек.txt",
+    "img_src": "media/images/4024.jpg"
   },
   {
     "name": "Нырок в забвение",
@@ -199,8 +199,8 @@
       "Триллеры"
     ],
     "download_url": "/txt.php?id=4102",
-    "book_path": "books/Хенрик Ричард.txt",
-    "img_src": "books/4102.jpg"
+    "book_path": "media/books/Хенрик Ричард.txt",
+    "img_src": "media/images/4102.jpg"
   },
   {
     "name": "Поющий колокольчик",
@@ -215,8 +215,8 @@
       "Прочие Детективы"
     ],
     "download_url": "/txt.php?id=4876",
-    "book_path": "books/Азимов Айзек.txt",
-    "img_src": "books/4876.jpg"
+    "book_path": "media/books/Азимов Айзек.txt",
+    "img_src": "media/images/4876.jpg"
   },
   {
     "name": "Продается тело Христа",
@@ -234,8 +234,8 @@
       "Триллеры"
     ],
     "download_url": "/txt.php?id=5299",
-    "book_path": "books/Аджалов Владимир Исфандеярович.txt",
-    "img_src": "books/5299.jpg"
+    "book_path": "media/books/Аджалов Владимир Исфандеярович.txt",
+    "img_src": "media/images/5299.jpg"
   },
   {
     "name": "Роковой поцелуй",
@@ -247,8 +247,8 @@
       "Прочие приключения"
     ],
     "download_url": "/txt.php?id=5648",
-    "book_path": "books/Патрацкая Наталья.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Патрацкая Наталья.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Те, кто против нас",
@@ -268,8 +268,8 @@
       "Триллеры"
     ],
     "download_url": "/txt.php?id=6758",
-    "book_path": "books/Руденко Борис.txt",
-    "img_src": "books/6758.jpg"
+    "book_path": "media/books/Руденко Борис.txt",
+    "img_src": "media/images/6758.jpg"
   },
   {
     "name": "Телепортеры, внимание!",
@@ -280,8 +280,8 @@
       "Триллеры"
     ],
     "download_url": "/txt.php?id=6766",
-    "book_path": "books/Мар Курт.txt",
-    "img_src": "books/6766.jpg"
+    "book_path": "media/books/Мар Курт.txt",
+    "img_src": "media/images/6766.jpg"
   },
   {
     "name": "Зодиак",
@@ -294,8 +294,8 @@
       "Триллеры"
     ],
     "download_url": "/txt.php?id=8283",
-    "book_path": "books/Стивенсон Нил.txt",
-    "img_src": "books/8283.jpg"
+    "book_path": "media/books/Стивенсон Нил.txt",
+    "img_src": "media/images/8283.jpg"
   },
   {
     "name": "Justitia - est Часть 1",
@@ -306,8 +306,8 @@
       "Прочие Детективы"
     ],
     "download_url": "/txt.php?id=8559",
-    "book_path": "books/Картман Эрика.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Картман Эрика.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Астронавт Джонс",
@@ -337,8 +337,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=8902",
-    "book_path": "books/Хайнлайн Роберт.txt",
-    "img_src": "books/8902.jpg"
+    "book_path": "media/books/Хайнлайн Роберт.txt",
+    "img_src": "media/images/8902.jpg"
   },
   {
     "name": "Будет скафандр - будут и путешествия",
@@ -360,8 +360,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=9080",
-    "book_path": "books/Хайнлайн Роберт.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Хайнлайн Роберт.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Дочь Нефертити",
@@ -383,8 +383,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=9402",
-    "book_path": "books/Семенова Татьяна.txt",
-    "img_src": "books/9402.jpg"
+    "book_path": "media/books/Семенова Татьяна.txt",
+    "img_src": "media/images/9402.jpg"
   },
   {
     "name": "Наложница императора",
@@ -400,8 +400,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=10768",
-    "book_path": "books/Семенова Татьяна.txt",
-    "img_src": "books/10768.jpg"
+    "book_path": "media/books/Семенова Татьяна.txt",
+    "img_src": "media/images/10768.jpg"
   },
   {
     "name": "Общая теория Доминант",
@@ -423,8 +423,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=10923",
-    "book_path": "books/Белохвостов Денис.txt",
-    "img_src": "books/10923.jpg"
+    "book_path": "media/books/Белохвостов Денис.txt",
+    "img_src": "media/images/10923.jpg"
   },
   {
     "name": "Взгляд из сердца",
@@ -438,8 +438,8 @@
       "Эзотерика"
     ],
     "download_url": "/txt.php?id=12795",
-    "book_path": "books/Мейстер Максим.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Мейстер Максим.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Звездный зверь ( Звездное чудовище)",
@@ -454,8 +454,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=13038",
-    "book_path": "books/Хайнлайн Роберт.txt",
-    "img_src": "books/13038.jpg"
+    "book_path": "media/books/Хайнлайн Роберт.txt",
+    "img_src": "media/images/13038.jpg"
   },
   {
     "name": "Сборник рассказов и повестей",
@@ -467,8 +467,8 @@
       "Юмористическая фантастика"
     ],
     "download_url": "/txt.php?id=16092",
-    "book_path": "books/ЛУКИНА Любовь.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/ЛУКИНА Любовь.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "...Яко помниши его",
@@ -496,8 +496,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18919",
-    "book_path": "books/Азимов Айзек.txt",
-    "img_src": "books/18919.jpg"
+    "book_path": "media/books/Азимов Айзек.txt",
+    "img_src": "media/images/18919.jpg"
   },
   {
     "name": "...На Вавилон",
@@ -513,8 +513,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18920",
-    "book_path": "books/Силверберг Роберт.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Силверберг Роберт.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "...Вставьте шплинт А в гнездо Б...",
@@ -538,8 +538,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18921",
-    "book_path": "books/Азимов Айзек.txt",
-    "img_src": "books/18921.jpg"
+    "book_path": "media/books/Азимов Айзек.txt",
+    "img_src": "media/images/18921.jpg"
   },
   {
     "name": "...к звездам!",
@@ -551,8 +551,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18922",
-    "book_path": "books/Радутный Радий.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Радутный Радий.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "1-книга. Весна на Галане",
@@ -567,8 +567,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18926",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "10-я книга. Варкенские перемены.",
@@ -580,8 +580,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18928",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "11-я книга. Рождение империи сенсетивов",
@@ -594,8 +594,19 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18929",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
+  },
+  {
+    "name": "13-я книга. Галанское сватовство",
+    "author": "Карр Алекс",
+    "comments": [],
+    "genres": [
+      "Научная фантастика"
+    ],
+    "download_url": "/txt.php?id=18930",
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "132-й",
@@ -611,8 +622,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18931",
-    "book_path": "books/Макаров Андрей.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Макаров Андрей.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "14-я книга. Барабаны Таланов",
@@ -622,8 +633,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18932",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "15-я книга. Школа арханелов",
@@ -633,8 +644,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18933",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "2-я книга. Сенсетивы Галана",
@@ -644,8 +655,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18935",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "4-я книга. Экспедиция на Голубой планетоид",
@@ -655,8 +666,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18936",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "5-я книга. В подземельях Бидрупа.",
@@ -666,8 +677,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18937",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "53-я американская мечта",
@@ -680,8 +691,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18938",
-    "book_path": "books/Салли Джейли.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Салли Джейли.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "6-я книга. Сражение за Бидруп.",
@@ -691,8 +702,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18939",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "64-клеточный дурдом",
@@ -704,8 +715,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18940",
-    "book_path": "books/Лейбер Фриц.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Лейбер Фриц.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "7-я книга. День Откровения",
@@ -715,8 +726,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18941",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "8-я книга. Полет Уригленны.",
@@ -726,8 +737,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18942",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "9-я книга. Тарат Зурбин",
@@ -737,8 +748,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18943",
-    "book_path": "books/Карр Алекс.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Карр Алекс.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "90х60х90",
@@ -750,8 +761,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18944",
-    "book_path": "books/Берендеев Кирилл.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Берендеев Кирилл.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "995-й святой",
@@ -761,8 +772,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18945",
-    "book_path": "books/Цветков Юрий.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Цветков Юрий.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А, Критика!",
@@ -772,8 +783,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18946",
-    "book_path": "books/Еськов Кирилл.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Еськов Кирилл.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "АНТОЛОГИЯ СКАНДИНАВСКОЙ ФАНТАСТИКИ",
@@ -790,8 +801,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18949",
-    "book_path": "books/Бойе Карин.txt",
-    "img_src": "books/18949.jpg"
+    "book_path": "media/books/Бойе Карин.txt",
+    "img_src": "media/images/18949.jpg"
   },
   {
     "name": "А бог един",
@@ -801,8 +812,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18952",
-    "book_path": "books/Амнуэль Песах.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Амнуэль Песах.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А была ли тайна",
@@ -812,8 +823,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18953",
-    "book_path": "books/Купцов Василий.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Купцов Василий.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А человек забудет",
@@ -823,8 +834,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18954",
-    "book_path": "books/Трусов Сергей.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Трусов Сергей.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А что будет",
@@ -834,8 +845,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18955",
-    "book_path": "books/Браун Фредерик.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Браун Фредерик.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А что с ними делать дальше?",
@@ -851,8 +862,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18956",
-    "book_path": "books/Фостер Алан Дин.txt",
-    "img_src": "books/18956.jpg"
+    "book_path": "media/books/Фостер Алан Дин.txt",
+    "img_src": "media/images/18956.jpg"
   },
   {
     "name": "А дом стоит себе спокойно (Вечный дом)",
@@ -862,8 +873,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18958",
-    "book_path": "books/Ван Вогт Альфред.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Ван Вогт Альфред.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А еще мы выгуливаем собак",
@@ -877,8 +888,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18959",
-    "book_path": "books/Хайнлайн Роберт.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Хайнлайн Роберт.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А где же Рошар",
@@ -888,8 +899,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18960",
-    "book_path": "books/Глазков Юрий.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Глазков Юрий.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А и Е",
@@ -899,8 +910,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18961",
-    "book_path": "books/Стульник Сергей.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Стульник Сергей.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А я пойду дальше",
@@ -910,8 +921,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18962",
-    "book_path": "books/Лейбер Фриц.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Лейбер Фриц.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А как же еще",
@@ -923,8 +934,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18963",
-    "book_path": "books/Каттнер Генри.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Каттнер Генри.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А мне до них",
@@ -934,8 +945,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18964",
-    "book_path": "books/Корепанов Алексей.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Корепанов Алексей.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А могла бы и быть",
@@ -945,8 +956,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18965",
-    "book_path": "books/Григорьев Владимир.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Григорьев Владимир.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А моя мама - ведьма!",
@@ -958,8 +969,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18966",
-    "book_path": "books/Тенн Уильям.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Тенн Уильям.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А мы лезем в окно",
@@ -971,8 +982,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18967",
-    "book_path": "books/Молзберг Барри.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Молзберг Барри.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А она уходила",
@@ -982,8 +993,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18969",
-    "book_path": "books/Дымов Феликс Яковлевич.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Дымов Феликс Яковлевич.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А поезд идет",
@@ -993,8 +1004,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18970",
-    "book_path": "books/Ашкинази Леонид.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Ашкинази Леонид.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А роза упала на лапу Азора",
@@ -1004,8 +1015,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18971",
-    "book_path": "books/Осинский Владимир.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Осинский Владимир.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А вдруг они победят",
@@ -1015,8 +1026,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18972",
-    "book_path": "books/Белен.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Белен.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А вдруг",
@@ -1026,8 +1037,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18973",
-    "book_path": "books/Грешнов Михаил.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Грешнов Михаил.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А все из-за любви",
@@ -1039,8 +1050,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18974",
-    "book_path": "books/Гуларт Рон.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Гуларт Рон.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А всходы будут не скоро",
@@ -1050,8 +1061,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18977",
-    "book_path": "books/Чешко Федор.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Чешко Федор.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А вы не верили",
@@ -1061,8 +1072,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18978",
-    "book_path": "books/Ягупова Светлана.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Ягупова Светлана.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А за тобой придет генерал",
@@ -1072,8 +1083,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18979",
-    "book_path": "books/Воробьев Борис.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Воробьев Борис.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "А жизнь идёт",
@@ -1083,8 +1094,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18980",
-    "book_path": "books/Бояндин Константин.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Бояндин Константин.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Ааст Ллун - архитектор неба",
@@ -1098,8 +1109,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18981",
-    "book_path": "books/Гуревич Георгий Иосифович.txt",
-    "img_src": "books/18981.jpg"
+    "book_path": "media/books/Гуревич Георгий Иосифович.txt",
+    "img_src": "media/images/18981.jpg"
   },
   {
     "name": "Абадон",
@@ -1109,8 +1120,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18982",
-    "book_path": "books/Купцов Василий.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Купцов Василий.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абицелла",
@@ -1120,8 +1131,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18984",
-    "book_path": "books/Попогребский П.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Попогребский П.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абракадабра",
@@ -1135,8 +1146,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18986",
-    "book_path": "books/Рассел Эрик Фрэнк.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Рассел Эрик Фрэнк.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абсолютная Энциклопедия. Том 2",
@@ -1148,8 +1159,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18987",
-    "book_path": "books/Диксон Гордон.txt",
-    "img_src": "books/18987.jpg"
+    "book_path": "media/books/Диксон Гордон.txt",
+    "img_src": "media/images/18987.jpg"
   },
   {
     "name": "Абсолютная гарантия",
@@ -1182,8 +1193,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18988",
-    "book_path": "books/Иванов Борис.txt",
-    "img_src": "books/18988.jpg"
+    "book_path": "media/books/Иванов Борис.txt",
+    "img_src": "media/images/18988.jpg"
   },
   {
     "name": "Абсолютная полиция",
@@ -1193,8 +1204,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18990",
-    "book_path": "books/Лисин Валерий.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Лисин Валерий.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абсолютная правда",
@@ -1204,8 +1215,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18991",
-    "book_path": "books/Коростелев Дмитрий.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Коростелев Дмитрий.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абсолютная пустота (предисловие)",
@@ -1217,8 +1228,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18992",
-    "book_path": "books/Лем Станислав.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Лем Станислав.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абсолютная технократия",
@@ -1230,8 +1241,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18993",
-    "book_path": "books/Альдани Лино.txt",
-    "img_src": "books/18993.jpg"
+    "book_path": "media/books/Альдани Лино.txt",
+    "img_src": "media/images/18993.jpg"
   },
   {
     "name": "Абсолютно невозможно",
@@ -1241,8 +1252,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18994",
-    "book_path": "books/Силверберг Роберт.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Силверберг Роберт.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абсолютное Оружие",
@@ -1252,8 +1263,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18995",
-    "book_path": "books/Ершов Юрий.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Ершов Юрий.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абсолютное оружие Горгон",
@@ -1263,8 +1274,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18996",
-    "book_path": "books/Щербаков Владимир.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Щербаков Владимир.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абсолютное счастье",
@@ -1277,8 +1288,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=18999",
-    "book_path": "books/Якименко Константин.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Якименко Константин.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абсолютное время",
@@ -1288,8 +1299,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=19000",
-    "book_path": "books/Бялецкий Януш.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Бялецкий Януш.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абсолютный хрум",
@@ -1299,8 +1310,8 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=19001",
-    "book_path": "books/Тарабанов Дмитрий.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Тарабанов Дмитрий.txt",
+    "img_src": "media/images/nopic.gif"
   },
   {
     "name": "Абстиненция",
@@ -1310,7 +1321,7 @@
       "Научная фантастика"
     ],
     "download_url": "/txt.php?id=19002",
-    "book_path": "books/Нестеренко Юрий.txt",
-    "img_src": "books/nopic.gif"
+    "book_path": "media/books/Нестеренко Юрий.txt",
+    "img_src": "media/images/nopic.gif"
   }
 ]

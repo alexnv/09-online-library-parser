@@ -1,5 +1,6 @@
 import argparse
 import json
+import logging
 import time
 from pathlib import Path
 from urllib.parse import urljoin
@@ -28,15 +29,17 @@ def get_relative_adresses_of_books(url, genre, start_page, end_page):
     return urls
 
 
-def save_as_json(books, dest_folder, json_path, filename="books_info"):
-    folder = json_path if json_path else dest_folder
-    Path(folder).mkdir(parents=True, exist_ok=True)
-    path = Path(f"{folder}/{filename}.json")
+def save_as_json(books, json_path, filename="books_info"):
+    Path(json_path).mkdir(parents=True, exist_ok=True)
+    path = Path(f"{json_path}/{filename}.json")
+    logging.info(f"Сохраняем базу книг в файл {path}")
     with open(path, "w", encoding="utf8") as file:
         json.dump(books, file, ensure_ascii=False)
 
 
 def main():
+    logging.getLogger().setLevel(logging.INFO)
+
     arguments = create_parser().parse_args()
     genre = arguments.genre
     start_page = arguments.start_page
@@ -45,6 +48,7 @@ def main():
     skip_imgs = arguments.skip_imgs
     skip_txt = arguments.skip_txt
     json_path = arguments.json_path
+    image_folder = arguments.image_folder
 
     url = "https://tululu.org/"
     books_relative_adresses = get_relative_adresses_of_books(
@@ -62,15 +66,18 @@ def main():
             "id": book_id
         }
         try:
+            logging.info(f"Скачиваем страницу по адресу {book_url}")
             parsed_page = parse_book_page(request_from_url(book_url).text)
             if not skip_txt:
                 txt_name = sanitize_filename(f"{parsed_page['author']}.txt")
                 book_path = download_txt(txt_url, txt_name, dest_folder, params)
+                logging.info(f"Книга сохранена по пути {book_path}")
                 parsed_page["book_path"] = book_path
             if not skip_imgs:
                 pic_url = urljoin(book_url, parsed_page['image_url'])
                 pic_name = parsed_page['image_name']
-                pic_path = download_image(pic_url, pic_name, dest_folder)
+                pic_path = download_image(pic_url, pic_name, image_folder)
+                logging.info(f"Изображение сохранено по пути {pic_path}")
                 parsed_page["img_src"] = pic_path
                 parsed_page.pop("image_url")
                 parsed_page.pop("image_name")
@@ -81,7 +88,7 @@ def main():
         except requests.exceptions.ConnectionError:
             time.sleep(1)
             continue
-    save_as_json(books, dest_folder, json_path)
+    save_as_json(books, json_path)
 
 
 def create_parser():
@@ -122,9 +129,9 @@ def create_parser():
     parser.add_argument(
         "-f",
         "--dest_folder",
-        default="./books",
+        default="./media/books",
         help="""Введите путь к каталогу с результатами парсинга:
-                картинкам, книгам, JSON."""
+                книгам, JSON."""
     )
     parser.add_argument(
         "-i",
@@ -143,8 +150,15 @@ def create_parser():
     parser.add_argument(
         "-j",
         "--json_path",
-        default=None,
+        default="./media/",
         help="Введите путь к *.json файлу с результатами."
+    )
+
+    parser.add_argument(
+        "-im",
+        "--image_folder",
+        default="./media/images",
+        help="""Введите путь к каталогу с результатами парсинга (картинки)"""
     )
 
     return parser

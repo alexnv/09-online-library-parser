@@ -9,22 +9,21 @@ from pathvalidate import sanitize_filename
 
 
 def render_page(id, totalpages, books, template, dir):
-    pages_nums = range(1, totalpages + 1)
+    pages_nums = range(1, totalpages+1)
     rendered_page = template.render(
         books=books,
-        current_page=id + 1,
+        current_page=id,
         total_pages=totalpages,
-        pages_nums=pages_nums
+        pages_nums=pages_nums,
+        prevous_page_link=f"../pages/index{id - 1}.html",
+        next_page_link=f"../pages/index{id + 1}.html",
+        pages_links=[{"href": f"../pages/index{num}.html", "id": num} for num in pages_nums],
+
     )
-    filepath = Path.cwd() / dir / sanitize_filename(f"index{id + 1}.html")
+    filepath = Path.cwd() / dir / sanitize_filename(f"index{id}.html")
     with open(filepath, "w", encoding="utf8") as file:
         file.write(rendered_page)
 
-    # write index.html page
-    if not id:
-        filepath = Path.cwd() / dir / sanitize_filename(f"index.html")
-        with open(filepath, "w", encoding="utf8") as file:
-            file.write(rendered_page)
 
 
 def on_reload():
@@ -43,12 +42,11 @@ def on_reload():
     template = env.get_template('template.jinja2')
 
     with open(json_path, "r", encoding="utf8") as books_file:
-        books_json = books_file.read()
+        books = json.load(books_file)
 
-    books = json.loads(books_json)
     books_pages = [chunk for chunk in chunked(books, books_per_page)]
     totalpages = len(books_pages)
-    for index, book_page in enumerate(books_pages):
+    for index, book_page in enumerate(books_pages, 1):
         books = [chunk for chunk in chunked(book_page, 2)]
         render_page(index, totalpages, books, template, output_path)
 
@@ -56,11 +54,13 @@ def on_reload():
 def main():
     arguments = create_parser().parse_args()
     book_folder = arguments.book_folder
+    image_folder = arguments.image_folder
 
     on_reload()
     server = Server()
     server.watch('./*.jinja2', on_reload)
     server.watch(f"./{book_folder}/*.*", on_reload)
+    server.watch(f"./{image_folder}/*.*", on_reload)
     server.serve(root=".")
 
 
@@ -73,14 +73,22 @@ def create_parser():
     parser.add_argument(
         "-f",
         "--book_folder",
-        default="./books",
+        default="./media/books",
         help="""Введите путь к каталогу с результатами парсинга:
-                картинкам, книгам, JSON."""
+                книгам, JSON."""
     )
+
+    parser.add_argument(
+        "-im",
+        "--image_folder",
+        default="./media/images",
+        help="""Введите путь к каталогу с результатами парсинга (картинки)"""
+    )
+
     parser.add_argument(
         "-j",
         "--json_path",
-        default="./books/books_info.json",
+        default="./media/books_info.json",
         help="Введите путь к *.json файлу с результатами."
     )
 
